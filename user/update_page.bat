@@ -1,0 +1,1 @@
+Xcopy "C:\Users\rapha\Google Drive\Projetos\webServer\user\user_page\build\web" "C:\Users\rapha\Google Drive\Projetos\webServer\user\server\page" /E /H /C /I
