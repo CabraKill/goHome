@@ -11,7 +11,7 @@ var (
 	DataBase repository.DevicesDataBase
 )
 
-//NewDataBaseJSON creates a new instance
-func NewDataBaseJSON() {
-	DataBase = &repository.JsonRepo{}
+//NewJSON returns a new instance
+func NewJSON() repository.DevicesDataBase{
+	return &repository.JsonRepo{}
 }
