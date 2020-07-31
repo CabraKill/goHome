@@ -12,22 +12,15 @@ import (
 	"github.com/gookit/color"
 )
 
-//PostFunction hgfhgf
-type PostFunction func(http.ResponseWriter, *http.Request, *repository.DevicesDataBase)
+//HTTPMethod hgfhgf
+type HTTPMethod func(http.ResponseWriter, *http.Request, *repository.DevicesDataBase)
 
 //HTTPServer asdawdawd
 type HTTPServer struct {
 	Port     int64
-	Post     PostFunction
+	Post     HTTPMethod
+	Delete     HTTPMethod
 	DataBase *repository.DevicesDataBase
-}
-
-//PostHandler kjhkjh
-func (s HTTPServer) PostHandler(w http.ResponseWriter, r *http.Request) {
-	//handler.SetupResponse(&w, r)
-	//handler.OptionsSendOk(&w, r)
-
-	s.Post(w, r, s.DataBase)
 }
 
 func (s HTTPServer) mainHandler(w http.ResponseWriter, r *http.Request) {
@@ -41,7 +34,10 @@ func (s HTTPServer) mainHandler(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(response))
 		return
 	case "POST":
-		s.PostHandler(w, r)
+		s.Post(w, r, s.DataBase)
+		return
+	case "DELETE":
+		s.Delete(w, r, s.DataBase)
 		return
 	default:
 		response := "Method not implemented ;-;\nSorry, try again."
@@ -58,8 +54,6 @@ func (s HTTPServer) Start() {
 	color.Cyan.Println("................................Server on................................")
 	//http.Handle("/", http.FileServer(http.Dir("./page")))
 	http.HandleFunc("/", s.mainHandler)
-
-	http.HandleFunc("/post", s.PostHandler)
 	if err := http.ListenAndServe(":"+strconv.FormatInt(s.Port, 10), nil); err != nil {
 		log.Fatal(err)
 	}

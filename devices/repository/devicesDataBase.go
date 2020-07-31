@@ -10,6 +10,7 @@ import (
 type DevicesDataBase interface {
 	GetDevices() []model.DeviceModel
 	AddDevice(device model.DeviceModel)
+	RemoveDevice(device model.DeviceModel)
 	ToString() string
 	Show()
 }
