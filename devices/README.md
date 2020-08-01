@@ -3,19 +3,7 @@ A golang server to manage devices.
 
 > Part of [goHome](https://www.github.com/CabraKill/goHome/) project
 
-```mermaid
-classDiagram
-	Device <|-- Action
-	class Device {
-	-string Name
-	-string Ip
-	-[action] Action
-	}
-	class Action{
-	-string Name
-	-int Type
-	}
-```
+![Device](/devices/readme/devices.png)
 
 ### Features
 
