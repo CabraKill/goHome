@@ -3,7 +3,7 @@ A golang server to manage devices.
 
 > Part of [goHome](https://www.github.com/CabraKill/goHome/) project
 
-![Device](/devices/readme/devices.png)
+![Device](/devices/readme/device.png)
 
 ### Features
 
