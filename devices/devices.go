@@ -61,10 +61,10 @@ const (
 
 func main() {
 	database := driver.NewJSON()
-	server := httpserver.HTTPServer{
+	server := httpserver.DevicesServer{
 		Port:     port,
 		Post:     post,
-		Delete:     delete,
+		Delete:   delete,
 		DataBase: &database,
 	}
 
