@@ -18,11 +18,14 @@ Like a REST API, it has operations like GET, POST and DELETE using the correspon
 * DELETE: Deletes a device with same Ip and Name if exists.
 
 ### Infrastruct
-
-* [driver/](.\devices\driver)
-* [model/](.\devices\model)
-* [repository/](.\devices\repository)
-* [devices.go](.\devices\devices.go)
+```
+📦devices
+ ┣ 📂driver
+ ┣ 📂model
+ ┣ 📂readme
+ ┣ 📂repository
+ ┣ 📜devices.go
+```
 
 ### Database
 
