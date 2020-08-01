@@ -7,7 +7,7 @@ A golang server to manage devices.
 
 ### Features
 
-Like a REST api with a no-sql database, it has operations like GET, POST and DELETE using the corresponding  HTTP method.
+Like a REST API, it has operations like GET, POST and DELETE using the corresponding  HTTP method.
 
 * GET: Returns the list of devices.
 
