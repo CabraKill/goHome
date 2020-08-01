@@ -19,7 +19,7 @@ Like a REST API, it has operations like GET, POST and DELETE using the correspon
 
 ### Database
 
-The current need of the database is managing the devices while the server is operating. Since the data infrastruct is horizontal with all its properties, a json list is implemented to work as the database.
+The current need of the database is managing the devices while the server is operating. Since the data infrastruct is horizontal with all its properties, a json list is implemented in memory to work as the database.
 
 
 
