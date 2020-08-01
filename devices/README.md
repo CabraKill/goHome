@@ -17,6 +17,13 @@ Like a REST API, it has operations like GET, POST and DELETE using the correspon
 
 * DELETE: Deletes a device with same Ip and Name if exists.
 
+### Infrastruct
+
+* [driver/](.\devices\driver)
+* [model/](.\devices\model)
+* [repository/](.\devices\repository)
+* [devices.go](.\devices\devices.go)
+
 ### Database
 
 The current need of the database is managing the devices while the server is operating. Since the data infrastruct is horizontal with all its properties, a json list is implemented in memory to work as the database.

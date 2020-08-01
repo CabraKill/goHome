@@ -12,14 +12,14 @@ import (
 	"github.com/gookit/color"
 )
 
-//HTTPMethod hgfhgf
+//HTTPMethod implements a function that receives the network arguments and the database
 type HTTPMethod func(http.ResponseWriter, *http.Request, *repository.DevicesDataBase)
 
-//DevicesServer asdawdawd
+//DevicesServer struct with the variables and functions of the Server
 type DevicesServer struct {
 	Port     int64
 	Post     HTTPMethod
-	Delete     HTTPMethod
+	Delete   HTTPMethod
 	DataBase *repository.DevicesDataBase
 }
 
@@ -48,9 +48,6 @@ func (s DevicesServer) mainHandler(w http.ResponseWriter, r *http.Request) {
 
 //Start A function to start the server with its port and HTTP methods
 func (s DevicesServer) Start() {
-	//.NewDataBaseJson()
-
-	//fmt.Printf("................Server on................\n")
 	color.Cyan.Println(".............................................Server on.............................................")
 	//http.Handle("/", http.FileServer(http.Dir("./page")))
 	http.HandleFunc("/", s.mainHandler)
