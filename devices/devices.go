@@ -24,7 +24,8 @@ func post(w http.ResponseWriter, r *http.Request, db *repository.DevicesDataBase
 		return
 	}
 
-	color.Green.Printf("Request: %+v.\n", device)
+	color.Blue.Printf("POST")
+	color.Green.Printf(" - Request: %+v.\n", device)
 	(*db).AddDevice(device)
 	(*db).Show()
 
@@ -45,7 +46,8 @@ func delete(w http.ResponseWriter, r *http.Request, db *repository.DevicesDataBa
 		return
 	}
 
-	color.Green.Printf("Request: %+v.\n", device)
+	color.Red.Printf("DELETE")
+	color.Green.Printf(" - Request: %+v.\n", device)
 	(*db).RemoveDevice(device)
 	(*db).Show()
 

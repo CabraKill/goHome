@@ -29,8 +29,8 @@ func (s DevicesServer) mainHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch method := r.Method; method {
 	case "GET":
-		//response := databaseDriver.DataBase.ToString()
-		response := "ola"
+		color.Yellow.Printf("GET\n")
+		response := (*s.DataBase).ToString()
 		w.Write([]byte(response))
 		return
 	case "POST":
