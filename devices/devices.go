@@ -13,6 +13,14 @@ import (
 	"github.com/goHome/httpserver"
 )
 
+
+
+func get(w http.ResponseWriter, r *http.Request, db *repository.DevicesDataBase) {
+	color.Yellow.Printf("GET\n")
+	response := (*db).ToString()
+	w.Write([]byte(response))
+}
+
 func post(w http.ResponseWriter, r *http.Request, db *repository.DevicesDataBase) {
 	var device model.DeviceModel
 
@@ -66,6 +74,7 @@ func main() {
 	server := httpserver.DevicesServer{
 		Port:     port,
 		Post:     post,
+		Get:     get,
 		Delete:   delete,
 		DataBase: &database,
 	}

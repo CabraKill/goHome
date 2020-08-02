@@ -18,6 +18,7 @@ type HTTPMethod func(http.ResponseWriter, *http.Request, *repository.DevicesData
 //DevicesServer struct with the variables and functions of the Server
 type DevicesServer struct {
 	Port     int64
+	Get     HTTPMethod
 	Post     HTTPMethod
 	Delete   HTTPMethod
 	DataBase *repository.DevicesDataBase
@@ -29,9 +30,7 @@ func (s DevicesServer) mainHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch method := r.Method; method {
 	case "GET":
-		color.Yellow.Printf("GET\n")
-		response := (*s.DataBase).ToString()
-		w.Write([]byte(response))
+		s.Get(w,r,s.DataBase)
 		return
 	case "POST":
 		s.Post(w, r, s.DataBase)
