@@ -7,5 +7,6 @@ package model
 type DeviceModel struct {
 	Name    string        `json:"name"`
 	Ip      string        `json:"ip"`
+	Type    int           `json:"type"`
 	Actions []ActionModel `json:"actions"`
 }
