@@ -3,9 +3,9 @@ A golang server to manage devices.
 
 > Part of [goHome](https://www.github.com/CabraKill/goHome/) project
 
-![Device](/readme/device.png)
+![Device](/devices/readme/device.png)
 ### Console
-![Console](/readme/console.PNG)
+![Console](/devices/readme/console.PNG)
 ### Features
 
 Like a REST API, it has operations like GET, POST and DELETE using the corresponding  HTTP method.
@@ -38,20 +38,20 @@ The current need of the database is managing the devices while the server is ope
 
 | type | name       | icon                                            |
 | ---- | ---------- | ----------------------------------------------- |
-| 1    | Desktop    | ![desktop](/readme/icons/desktop.png)           |
-| 2    | SmartPhone | ![smartphone](/readme/icons/smartphone.png)     |
-| 3    | IOT        | ![scatter_plot](/readme/icons/scatter_plot.png) |
+| 1    | Desktop    | ![desktop](/devices/readme/icons/desktop.png)           |
+| 2    | SmartPhone | ![smartphone](/devices/readme/icons/smartphone.png)     |
+| 3    | IOT        | ![scatter_plot](/devices/readme/icons/scatter_plot.png) |
 
 ### Action Types
 
 | type | name  | icon                                      |
 | ---- | ----- | ----------------------------------------- |
-| 1    | OnOff | ![onoff](/readme/icons/onoff.png)         |
-| 2    | On    | ![power_on](/readme/icons/power_on.png)   |
-| 3    | Off   | ![power_off](/readme/icons/power_off.png) |
-| 4    | Play  | ![play](/readme/icons/play.png)           |
-| 5    | Pause | ![pause](/readme/icons/pause.png)         |
-| 6    | Stop  | ![stop](/readme/icons/stop.png)           |
+| 1    | OnOff | ![onoff](/devices/readme/icons/onoff.png)         |
+| 2    | On    | ![power_on](/devices/readme/icons/power_on.png)   |
+| 3    | Off   | ![power_off](/devices/readme/icons/power_off.png) |
+| 4    | Play  | ![play](/devices/readme/icons/play.png)           |
+| 5    | Pause | ![pause](/devices/readme/icons/pause.png)         |
+| 6    | Stop  | ![stop](/devices/readme/icons/stop.png)           |
 
 
 
