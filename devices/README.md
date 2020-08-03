@@ -3,9 +3,9 @@ A golang server to manage devices.
 
 > Part of [goHome](https://www.github.com/CabraKill/goHome/) project
 
-![Device](/readme/device.PNG)
+![Device](/readme/device.png)
 ### Console
-![Console](/readme/console.png)
+![Console](/readme/console.PNG)
 ### Features
 
 Like a REST API, it has operations like GET, POST and DELETE using the corresponding  HTTP method.
