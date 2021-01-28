@@ -2,26 +2,30 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"github.com/gookit/color"
+	"github.com/gorilla/mux"
 
 	"github.com/goHome/devices/driver"
 	"github.com/goHome/devices/model"
 
 	"github.com/goHome/devices/repository"
-	"github.com/goHome/httpserver"
 )
 
+type devicesAPI struct {
+	database *repository.DevicesDataBase
+}
 
-
-func get(w http.ResponseWriter, r *http.Request, db *repository.DevicesDataBase) {
-	color.Yellow.Printf("GET\n")
-	response := (*db).ToString()
+func (api *devicesAPI) getDevices(w http.ResponseWriter, r *http.Request) {
+	color.Red.Printf("get\n")
+	response := (*api.database).ToString()
+	w.Header().Set("Content-Type", "application/json")
 	w.Write([]byte(response))
 }
 
-func post(w http.ResponseWriter, r *http.Request, db *repository.DevicesDataBase) {
+func (api *devicesAPI) addDevice(w http.ResponseWriter, r *http.Request) {
 	var device model.DeviceModel
 
 	// Try to decode the request body into the struct. If there is an error,
@@ -32,18 +36,18 @@ func post(w http.ResponseWriter, r *http.Request, db *repository.DevicesDataBase
 		return
 	}
 
-	color.Blue.Printf("POST")
+	color.Blue.Printf("post")
 	color.Green.Printf(" - Request: %+v.\n", device)
-	(*db).AddDevice(device)
-	(*db).Show()
+	(*api.database).AddDevice(device)
+	(*api.database).Show()
 
 	//w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
-	response := (*db).ToString()
+	response := (*api.database).ToString()
 	w.Write([]byte(response))
 }
 
-func delete(w http.ResponseWriter, r *http.Request, db *repository.DevicesDataBase) {
+func (api *devicesAPI) deleteDevice(w http.ResponseWriter, r *http.Request) {
 	var device model.DeviceModel
 
 	// Try to decode the request body into the struct. If there is an error,
@@ -53,31 +57,31 @@ func delete(w http.ResponseWriter, r *http.Request, db *repository.DevicesDataBa
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-
-	color.Red.Printf("DELETE")
+	color.Yellow.Printf("delete")
 	color.Green.Printf(" - Request: %+v.\n", device)
-	(*db).RemoveDevice(device)
-	(*db).Show()
+	(*api.database).RemoveDevice(device)
+	(*api.database).Show()
 
-	//w.WriteHeader(http.StatusOK)
+	// w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
-	response := (*db).ToString()
+	response := (*api.database).ToString()
 	w.Write([]byte(response))
 }
 
 const (
-	port = 8081
+	port = "8081"
 )
 
 func main() {
 	database := driver.NewJSON()
-	server := httpserver.DevicesServer{
-		Port:     port,
-		Post:     post,
-		Get:     get,
-		Delete:   delete,
-		DataBase: &database,
+	server := devicesAPI{
+		&database,
 	}
 
-	server.Start()
+	r := mux.NewRouter()
+	r.HandleFunc("/", server.getDevices).Methods(http.MethodGet)
+	r.HandleFunc("/", server.addDevice).Methods(http.MethodPost)
+	r.HandleFunc("/", server.deleteDevice).Methods(http.MethodPut)
+
+	log.Fatal(http.ListenAndServe(":"+port, r))
 }
