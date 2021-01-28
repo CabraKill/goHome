@@ -9,11 +9,15 @@ import (
 	// "github.com/goHome/devices/driver"
 )
 
-func listDevices(w http.ResponseWriter, r *http.Request) {
+type httpConnectionExample struct {
+	dataBase string
+}
+
+func (z httpConnectionExample) ListDevices(w http.ResponseWriter, r *http.Request) {
 	color.Red.Println("get")
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(`{"message": "get called"}`))
+	w.Write([]byte(`{"message": "` + z.dataBase + `"}`))
 }
 
 func addDevice(w http.ResponseWriter, r *http.Request) {
@@ -36,8 +40,11 @@ const (
 
 func main() {
 	// database := driver.NewJson()
+	con := httpConnectionExample{
+		"testando",
+	}
 	r := mux.NewRouter()
-	r.HandleFunc("/", listDevices).Methods(http.MethodGet)
+	r.HandleFunc("/", con.ListDevices).Methods(http.MethodGet)
 	r.HandleFunc("/", addDevice).Methods(http.MethodPost)
 	r.HandleFunc("/", updateDevice).Methods(http.MethodPut)
 	log.Fatal(http.ListenAndServe(":"+port, r))
