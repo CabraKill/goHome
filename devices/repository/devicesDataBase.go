@@ -1,5 +1,3 @@
-// go:binary-only-package
-
 package repository
 
 import (

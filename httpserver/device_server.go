@@ -1,5 +1,3 @@
-// go:binary-only-package
-
 package httpserver
 
 import (
@@ -18,7 +16,7 @@ type HTTPMethod func(http.ResponseWriter, *http.Request, *repository.DevicesData
 //DevicesServer struct with the variables and functions of the Server
 type DevicesServer struct {
 	Port     int64
-	Get     HTTPMethod
+	Get      HTTPMethod
 	Post     HTTPMethod
 	Delete   HTTPMethod
 	DataBase *repository.DevicesDataBase
@@ -30,7 +28,7 @@ func (s DevicesServer) mainHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch method := r.Method; method {
 	case "GET":
-		s.Get(w,r,s.DataBase)
+		s.Get(w, r, s.DataBase)
 		return
 	case "POST":
 		s.Post(w, r, s.DataBase)

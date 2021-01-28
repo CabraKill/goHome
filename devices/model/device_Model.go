@@ -1,5 +1,3 @@
-// go:binary-only-package
-
 package model
 
 //DeviceModel with the info about it

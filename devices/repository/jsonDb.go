@@ -1,5 +1,3 @@
-// go:binary-only-package
-
 package repository
 
 import (
@@ -22,7 +20,7 @@ func (j *JSONRepo) GetDevices() []model.DeviceModel {
 //AddDevice adds a given device into the json list.
 //If the ip is already known the properties are overriden
 func (j *JSONRepo) AddDevice(device model.DeviceModel) {
-	for i,v := range j.devices {
+	for i, v := range j.devices {
 		if v.Ip == device.Ip && v.Name == device.Name {
 			j.devices[i] = device
 			return
