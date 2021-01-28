@@ -1,2 +1,0 @@
-devices.exe
-user/page
