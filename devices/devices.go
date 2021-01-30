@@ -74,14 +74,14 @@ const (
 
 func main() {
 	database := driver.NewJSON()
-	server := devicesAPI{
+	api := devicesAPI{
 		&database,
 	}
 
 	r := mux.NewRouter()
-	r.HandleFunc("/", server.getDevices).Methods(http.MethodGet)
-	r.HandleFunc("/", server.addDevice).Methods(http.MethodPost)
-	r.HandleFunc("/", server.deleteDevice).Methods(http.MethodPut)
+	r.HandleFunc("/", api.getDevices).Methods(http.MethodGet)
+	r.HandleFunc("/", api.addDevice).Methods(http.MethodPost)
+	r.HandleFunc("/", api.deleteDevice).Methods(http.MethodPut)
 
 	log.Fatal(http.ListenAndServe(":"+port, r))
 }
