@@ -1,4 +1,4 @@
-# goHome
+# goHome (IN PROGRESS)
 A golang project to work as a home center of utilities.
 
 ![Infra](/readme/Infra.png)
