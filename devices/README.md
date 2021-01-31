@@ -38,20 +38,20 @@ The current need of the database is managing the devices while the server is ope
 
 | type | name       | icon                                            |
 | ---- | ---------- | ----------------------------------------------- |
-| 1    | Desktop    | ![desktop](/devices/readme/icons/desktop.png)           |
-| 2    | SmartPhone | ![smartphone](/devices/readme/icons/smartphone.png)     |
-| 3    | IOT        | ![scatter_plot](/devices/readme/icons/scatter_plot.png) |
+| 0    | Desktop    | ![desktop](/devices/readme/icons/desktop.png)           |
+| 1    | SmartPhone | ![smartphone](/devices/readme/icons/smartphone.png)     |
+| 2    | IOT        | ![scatter_plot](/devices/readme/icons/scatter_plot.png) |
 
 ### Action Types
 
 | type | name  | icon                                      |
 | ---- | ----- | ----------------------------------------- |
-| 1    | OnOff | ![onoff](/devices/readme/icons/onoff.png)         |
-| 2    | On    | ![power_on](/devices/readme/icons/power_on.png)   |
-| 3    | Off   | ![power_off](/devices/readme/icons/power_off.png) |
-| 4    | Play  | ![play](/devices/readme/icons/play.png)           |
-| 5    | Pause | ![pause](/devices/readme/icons/pause.png)         |
-| 6    | Stop  | ![stop](/devices/readme/icons/stop.png)           |
+| 0    | OnOff | ![onoff](/devices/readme/icons/onoff.png)         |
+| 1    | On    | ![power_on](/devices/readme/icons/power_on.png)   |
+| 2    | Off   | ![power_off](/devices/readme/icons/power_off.png) |
+| 3    | Play  | ![play](/devices/readme/icons/play.png)           |
+| 4    | Pause | ![pause](/devices/readme/icons/pause.png)         |
+| 5    | Stop  | ![stop](/devices/readme/icons/stop.png)           |
 
 
 

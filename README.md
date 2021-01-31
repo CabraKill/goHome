@@ -10,3 +10,4 @@ The system is currently divided in 3 sections, wich:
 * [Device Server](https://github.com/CabraKill/goHome/tree/master/devices)
 
 Each server is independent, having its database and location.
+    
